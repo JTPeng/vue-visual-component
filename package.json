@@ -2,7 +2,7 @@
   "name": "visual-libs-dev",
   "version": "1.0.0",
   "description": "components visual-libs",
-  "main": "index.js",
+  "main": "dist/visual.lib.es.js",
   "scripts": {
     "dev": "rollup -wc rollup.config.dev.js",
     "build": "eslint ./src && rollup -c rollup.config.dev.js",
