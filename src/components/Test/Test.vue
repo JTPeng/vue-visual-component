@@ -1,7 +1,9 @@
 <template>
   <div class="test">{{ message }}</div>
+  <slot name="header"></slot>
   <div>double: {{ doubleCount }}</div>
   <h1>count:{{ count }}</h1>
+  <slot name="footer"></slot>
   <button @click="clickBtn">clickBtn</button>
 </template>
 
