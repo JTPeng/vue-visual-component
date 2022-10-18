@@ -1,6 +1,6 @@
 <template>
-  <div class="ifly-box" :ref="refName">
-    <!-- <svg :width="width" :height="height">
+  <div class="fly-box" :ref="refName">
+    <svg :width="width" :height="height">
       <defs>
         <path :id="pathId" :d="path" fill="none" />
         <radialGradient
@@ -37,30 +37,8 @@
         :stroke="starColor"
         :mask="`url(#${maskId})`"
       />
-    </svg> -->
-    <svg width="400" height="400">
-      <defs>
-        <path id="fly-box-path" d="M5 5 L395 5 L395 395 L5 395 Z" fill="none" />
-        <mask id="fly-box-mask">
-          <circle r="30" cx="0" cy="0" fill="white">
-            <animateMotion
-              :dur="`2s`"
-              path="M5 5 L395 5 L395 395 L5 395 Z"
-              rotate="auto"
-              repeatCount="3"
-            ></animateMotion>
-          </circle>
-        </mask>
-      </defs>
-      <use href="#fly-box-path" stroke-width="1" stroke="#235fa7" />
-      <use
-        href="#fly-box-path"
-        stroke-width="3"
-        stroke="#4fd2dd"
-        mask="url(#fly-box-mask)"
-      />
     </svg>
-    <div class="ifly-box-content">
+    <div class="fly-box-content">
       <slot></slot>
     </div>
   </div>
@@ -105,7 +83,7 @@ export default {
         } L5 ${height.value - 5} Z`
     );
     const init = () => {
-      const instance = getCurrentInstance();
+      const instance = getCurrentInstance(); // 获取实例
       const dom = instance.ctx.$refs[refName];
       width.value = dom.clientWidth;
       height.value = dom.clientHeight;
@@ -125,3 +103,24 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.fly-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .fly-box-content {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+}
+</style>
