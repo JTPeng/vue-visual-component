@@ -3,6 +3,7 @@ import Test2 from "./components/Test2/index";
 import Icon from "./components/Icon/index";
 import SvgAnimation from "./components/SvgAnimation/index";
 import ScreenLoading from "./components/ScreenLoading/index";
+import FlexBox from "./components/FlexBox/index";
 export default function (Vue) {
   // 组件注册
   Vue.use(Test);
@@ -10,4 +11,5 @@ export default function (Vue) {
   Vue.use(Icon);
   Vue.use(SvgAnimation);
   Vue.use(ScreenLoading);
+  Vue.use(FlexBox);
 }
