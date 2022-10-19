@@ -37,7 +37,18 @@ module.exports = {
     common(),
     json(),
     postcss({ plugins: [] }),
-    babel({ exclude: "node_modules/**" }),
+    babel({
+      exclude: "node_modules/**",
+      runtimeHelpers: true,
+      plugins: [
+        [
+          "@babel/transform-runtime",
+          {
+            regenerator: true,
+          },
+        ],
+      ],
+    }),
   ],
   external: ["vue"],
 };
