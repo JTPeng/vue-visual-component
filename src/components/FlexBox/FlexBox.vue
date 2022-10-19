@@ -25,7 +25,7 @@
               :dur="`${duration}s`"
               :path="path"
               rotate="auto"
-              repeatCount="3"
+              :repeatCount="repeatCount"
             />
           </circle>
         </mask>
@@ -65,6 +65,10 @@ export default {
     duration: {
       type: [Number, String],
       default: 3,
+    },
+    repeatCount: {
+      type: [Number, String],
+      default: "indefinite",
     },
   },
   setup(ctx) {
