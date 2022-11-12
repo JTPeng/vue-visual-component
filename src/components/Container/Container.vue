@@ -1,6 +1,5 @@
 <template>
   <div id="data-container" :ref="refName">
-    <h1>Container</h1>
     <template v-if="ready">
       <slot></slot>
     </template>
